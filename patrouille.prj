@@ -6,6 +6,7 @@
    <UUID>c01e7877-c3e5-4cf6-8b75-073903b424ee</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
+   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/patrouille/patrouille.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>

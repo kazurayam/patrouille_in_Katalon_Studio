@@ -1,0 +1,4 @@
+0cf8a761f0fbc0465162da735b3d346edea5af4a	xlsx	{"URL.host":"www.fsa.go.jp", "URL.path":"/policy/nisa/20170614-2/23.xlsx", "URL.port":"80", "URL.protocol":"https", "seq":"0"}
+cc79b013c53934980bd1e09dc0486397baffeefe	xlsx	{"URL.host":"www.fsa.go.jp", "URL.path":"/policy/nisa/20170614-2/25.xlsx", "URL.port":"80", "URL.protocol":"https", "seq":"1"}
+b832baa401af11eff8ece217d7fec4b1de255bc5	xlsx	{"URL.host":"www.fsa.go.jp", "URL.path":"/policy/nisa/20180126-1/01.xlsx", "URL.port":"80", "URL.protocol":"https", "seq":"2"}
+ccf16d17538f50c77ead1884f4679bb6a64efc6a	xlsx	{"URL.host":"www.fsa.go.jp", "URL.path":"/policy/nisa/20180126-1/02.xlsx", "URL.port":"80", "URL.protocol":"https", "seq":"3"}

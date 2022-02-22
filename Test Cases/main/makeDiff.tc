@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>TC1</name>
+   <name>makeDiff</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>814a42ff-4e38-44a8-8a45-ad7fd4cf6cd2</testCaseGuid>
+   <testCaseGuid>a64d5efd-d9b4-406c-818f-7b03b831eeba</testCaseGuid>
 </TestCaseEntity>

@@ -7,6 +7,7 @@ version = '0.1.0-SNAPSHOT'
 ext {
     AUTO_IMPORTED_JAR_PREFIX = 'AUTOIMPORTED_'
     materialstoreVersion = '0.3.3'
+    javadiffutilsVersion = '4.9'
     junit4ksVersion = '1.6.1'
 }
 
@@ -22,6 +23,8 @@ configurations {
 dependencies {
     myconf group: 'com.kazurayam', name: 'materialstore',
                     version: "${materialstoreVersion}"
+    myconf group: 'io.github.java-diff-utils', name: 'java-diff-utils',
+                    version: "${javadiffutilsVersion}"
     myconf group: 'com.kazurayam', name: 'junit4ks', version: "${junit4ksVersion}"
 }
 
@@ -38,6 +41,7 @@ task drivers {
                 .into("Drivers")
                 .include(
                     "**/materialstore*.jar",
+                    "**/java-diff-utils*.jar",
                     "**/junit4ks*.jar",
                     )
                 .rename({ s ->

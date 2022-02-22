@@ -14,10 +14,20 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+/**
+ * main/download
+ * 
+ * 1. get access to a web page of the Financial Services Agency, Japan 金融庁
+ * 2. look up URLs of Excel files published in the page
+ * 3. download the .xlsx files
+ * 4. store the materials into the materialstore with 
+ *    JobName = the title of the web page
+ *    JobTimestamp = the timestamp when this script ran 
+ */
 Path projectDir = Paths.get(RunConfiguration.getProjectDir())
 
 Store store = Stores.newInstance(projectDir.resolve("store"))
-JobName jobName = new JobName("prototype")
+JobName jobName = new JobName("つみたてNISAの対象商品")
 JobTimestamp jobTimestamp = JobTimestamp.now()
 
 URL base = new URL("https://www.fsa.go.jp/policy/nisa2/about/tsumitate/target/index.html")
@@ -56,3 +66,4 @@ targets.eachWithIndex { tObj, index ->
 WebUI.delay(3)
 WebUI.closeBrowser()
 
+return new Tuple(jobName, jobTimestamp)

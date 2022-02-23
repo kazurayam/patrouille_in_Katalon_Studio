@@ -6,7 +6,7 @@ version = '0.1.0-SNAPSHOT'
 
 ext {
     AUTO_IMPORTED_JAR_PREFIX = 'AUTOIMPORTED_'
-    materialstoreVersion = '0.3.3'
+    materialstoreVersion = '0.3.5'
     javadiffutilsVersion = '4.9'
     junit4ksVersion = '1.6.1'
 }

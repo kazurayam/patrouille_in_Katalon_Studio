@@ -3,12 +3,13 @@ import java.nio.file.Path
 import java.nio.file.Paths
 
 import com.kazurayam.materialstore.MaterialstoreFacade
+import com.kazurayam.materialstore.MaterialstoreFacade.Result
 import com.kazurayam.materialstore.filesystem.JobName
 import com.kazurayam.materialstore.filesystem.JobTimestamp
 import com.kazurayam.materialstore.filesystem.MaterialList
 import com.kazurayam.materialstore.filesystem.Store
 import com.kazurayam.materialstore.filesystem.Stores
-import com.kazurayam.materialstore.metadata.MetadataPattern
+import com.kazurayam.materialstore.metadata.QueryOnMetadata
 import com.kazurayam.materialstore.resolvent.ArtifactGroup
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
@@ -46,11 +47,11 @@ if (previousTimestamp == JobTimestamp.NULL_OBJECT) {
 }
 
 // Look up the materials stored in the previous time of run
-MaterialList left = store.select(jobName, previousTimestamp, MetadataPattern.ANY)
+MaterialList left = store.select(jobName, previousTimestamp, QueryOnMetadata.ANY)
 assert left.size() > 0
 
 // Look up the materials stored in the latest time of run
-MaterialList right = store.select(jobName, latestTimestamp, MetadataPattern.ANY)
+MaterialList right = store.select(jobName, latestTimestamp, QueryOnMetadata.ANY)
 assert right.size() > 0
 
 // the facade clall that work for you
@@ -63,21 +64,21 @@ ArtifactGroup prepared =
 	    .ignoreKeys("URL.protocol", "URL.host", "URL.port")
 		.build()
 
-// now make the diff of the left and the right
-ArtifactGroup workedOut = facade.workOn(prepared)
-
 // if the difference is greater than this criteria value (unit %),
 // the difference should be marked
 double criteria = 0.1d
 
-// compile HTML report
-Path reportFile = facade.reportArtifactGroup(jobName, workedOut, criteria,
-	jobName.toString() + "-index.html")
-assert Files.exists(reportFile)
-WebUI.comment("The report can be found at ${reportFile.toString()}")
+// file name of HTML report
+String fileName = jobName.toString() + "-index.html"
+
+// make diff and compile report
+Result result = facade.makeDiffAndReport(jobName, prepared, criteria, fileName)
+
+assert Files.exists(result.report())
+WebUI.comment("The report can be found at ${result.report()}")
 
 // if any significant difference found, this Test Case should FAIL
-int warnings = workedOut.countWarnings(criteria)
+int warnings = result.warnings()
 if (warnings > 0) {
 	KeywordUtil.makrWarning("found ${warnings} differences")
 }

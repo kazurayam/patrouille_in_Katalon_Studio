@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>patrouille</name>
+   <name>patrouille_in_Katalon_Studio</name>
    <tag></tag>
    <UUID>c01e7877-c3e5-4cf6-8b75-073903b424ee</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/patrouille/patrouille.prj</projectFileLocation>
+   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/patrouille_in_Katalon_Studio/patrouille_in_Katalon_Studio.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
